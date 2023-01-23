@@ -1,0 +1,42 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.App {
+    font-family: sans-serif;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+
+}
+
+.post__item {
+    display: flex;
+    padding: 15px;
+    border: 1px solid lightgray;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 1px 1px 5px #000;
+    flex-direction: column;
+    align-items: center;
+}
+.post__title {
+    margin: 10px 0 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.post__img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.post__description {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+.post__buttons {
+    display: flex;
+    justify-content: center;
+}
+
