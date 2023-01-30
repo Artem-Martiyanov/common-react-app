@@ -7,7 +7,7 @@ import PostForm from "./components/PostForm";
 function App() {
     const [posts, setPosts] = useState([
         {id: 1, title: 'Javascript', body: 'Discription'},
-        {id: 2, title: 'Typescript', body: 'Discription2'},
+        {id: 2, title: 'Typescript', body: 'wdgv'},
         {id: 3, title: 'CSS', body: 'Discription3'},
     ]);
     const createPost = (newPost) => setPosts([...posts, newPost]);

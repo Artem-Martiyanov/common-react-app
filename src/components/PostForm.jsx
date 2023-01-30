@@ -6,12 +6,14 @@ const PostForm = ({create}) => {
     const [post, setPost] = useState({title: '', body: ''});
     const addNewPost = (e) => {
         e.preventDefault();
-        const newPost = {
-            ...post,
-            id: Date.now(),
+        if (post.title && post.body) {
+            const newPost = {
+                ...post,
+                id: Date.now(),
+            }
+            create(newPost);
+            setPost({title: '', body: ''});
         }
-        create(newPost);
-        setPost({title: '', body: ''});
     }
     return (
         <form>

@@ -11,15 +11,26 @@
     flex-direction: column;
     padding: 50px 15px 0;
 }
-
+.post__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .post {
     display: flex;
+    min-width: 300px;
+    width: 30%;
+    flex-direction: column;
     padding: 15px;
     border: 2px solid teal;
-    margin-top: 15px;
+    margin: 15px;
     justify-content: space-between;
     align-items: center;
     border-radius: 5px;
+    word-break: break-word;
+}
+.post__content > * {
+    margin-bottom: 15px;
 }
 .post__title {
     font-size: 18px;
