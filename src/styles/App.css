@@ -8,35 +8,24 @@
     font-size: 16px;
     display: flex;
     justify-content: center;
-    padding-top: 50px;
-
+    flex-direction: column;
+    padding: 50px 15px 0;
 }
 
-.post__item {
+.post {
     display: flex;
     padding: 15px;
-    border: 1px solid lightgray;
-    max-width: 300px;
-    width: 100%;
-    box-shadow: 1px 1px 5px #000;
-    flex-direction: column;
+    border: 2px solid teal;
+    margin-top: 15px;
+    justify-content: space-between;
     align-items: center;
+    border-radius: 5px;
 }
 .post__title {
-    margin: 10px 0 20px;
+    font-size: 18px;
+}
+.post__info {
+    font-size: 25px;
+    font-weight: 700;
     text-align: center;
-    text-transform: uppercase;
 }
-.post__img {
-    width: 100%;
-    margin-bottom: 10px;
-}
-.post__description {
-    text-align: justify;
-    margin-bottom: 20px;
-}
-.post__buttons {
-    display: flex;
-    justify-content: center;
-}
-
