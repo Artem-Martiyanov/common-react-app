@@ -2,7 +2,7 @@ import React from 'react';
 import MyInput from "./UI/input/MyInput";
 import MyTextarea from "./UI/textarea/MyTextarea";
 import MyButton from "./UI/button/MyButton";
-const PostEditor = ({post, setPost, editPost}) => {
+const PostEditor = ({post, setPost, editPost, setVisible}) => {
     return (
         <>
             <MyInput
@@ -20,7 +20,7 @@ const PostEditor = ({post, setPost, editPost}) => {
                 <MyButton onClick={editPost}>
                     Применить
                 </MyButton>
-                <MyButton>
+                <MyButton onClick={() => setVisible(false)}>
                     Отмена
                 </MyButton>
             </div>

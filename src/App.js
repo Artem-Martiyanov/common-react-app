@@ -47,7 +47,6 @@ function App() {
            }
            return post;
         }));
-
         setModalEditor(false);
     }
 
@@ -61,7 +60,7 @@ function App() {
             <PostForm create={createPost}/>
         </MyModal>
         <MyModal visible={modalEditor} setVisible={setModalEditor}>
-            <PostEditor post={currentPost} setPost={setCurrentPost} editPost={editPost}/>
+            <PostEditor post={currentPost} setPost={setCurrentPost} editPost={editPost} setVisible={setModalEditor}/>
         </MyModal>
         <PostFilter filter={filter} setFilter={setFilter}/>
         <PostList
