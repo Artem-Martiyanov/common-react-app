@@ -20,6 +20,7 @@ function App() {
     const [filter, setFilter] = useState({sort: '', query: ''})
     const [modalCreator, setModalCreator] = useState(false);
     const [modalEditor, setModalEditor] = useState(false);
+    const [currentPost, setCurrentPost] = useState({title: '', body: ''});
     const sortedPosts = useMemo(() => {
         if (filter.sort) {
             return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
@@ -35,7 +36,20 @@ function App() {
         setModalCreator(false);
     }
     const removePost = (currentPost) => setPosts(posts.filter((post) => currentPost.id !== post.id));
-    // const editPost = (currentPost) =>
+    const getPost = (post) => {
+        setModalEditor(true);
+        setCurrentPost(post);
+    }
+    const editPost = () => {
+        setPosts(posts.map((post) => {
+           if (post.id === currentPost.id) {
+              return post = {...post, title: currentPost.title, body: currentPost.body};
+           }
+           return post;
+        }));
+
+        setModalEditor(false);
+    }
 
 
   return (
@@ -46,12 +60,16 @@ function App() {
         <MyModal visible={modalCreator} setVisible={setModalCreator}>
             <PostForm create={createPost}/>
         </MyModal>
-        <MyModal>
-            <PostEditor/>
+        <MyModal visible={modalEditor} setVisible={setModalEditor}>
+            <PostEditor post={currentPost} setPost={setCurrentPost} editPost={editPost}/>
         </MyModal>
         <PostFilter filter={filter} setFilter={setFilter}/>
-        <PostList remove={removePost} posts={sortedAndSearchedPosts} title='Список постов 1'/>
-        {/*<PostEditor />*/}
+        <PostList
+            getPost={getPost}
+            remove={removePost}
+            posts={sortedAndSearchedPosts}
+            title='Список постов 1'
+        />
 
     </div>
   );

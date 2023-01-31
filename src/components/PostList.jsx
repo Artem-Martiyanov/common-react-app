@@ -1,7 +1,7 @@
 import React from 'react';
 import PostItem from "./PostItem";
 
-const PostList = ({posts, title, remove}) => {
+const PostList = ({posts, title, remove, getPost}) => {
     if (!posts.length) {
     return <p className='post__info'>Посты не найдены :(</p>
     }
@@ -11,7 +11,13 @@ const PostList = ({posts, title, remove}) => {
                 {title}
             </h1>
             <ul className="post__list">
-                {posts.map((post, index) => <PostItem remove={remove} number={index + 1} post={post} key={post.id}/>)}
+                {posts.map((post, index) => <PostItem
+                    getPost={getPost}
+                    remove={remove}
+                    number={index + 1}
+                    post={post}
+                    key={post.id}
+                />)}
             </ul>
         </>
     );
