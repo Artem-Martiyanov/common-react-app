@@ -11,7 +11,6 @@ const PostList = ({posts, title, remove}) => {
                 {title}
             </h1>
             <ul className="post__list">
-
                 {posts.map((post, index) => <PostItem remove={remove} number={index + 1} post={post} key={post.id}/>)}
             </ul>
         </>

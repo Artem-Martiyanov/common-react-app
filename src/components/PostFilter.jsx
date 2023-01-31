@@ -8,9 +8,10 @@ const PostFilter = ({filter, setFilter}) => {
     return (
         <div className="post__filter">
             <MyInput
+                style={{fontSize: "18px", marginBottom: "40px"}}
                 value={filter.query}
                 onChange={e => setFilter({...filter, query: e.target.value})}
-                placeholder="Введите название поста..."
+                placeholder="Поиск..."
             />
             <MySelect
                 value={filter.sort}
