@@ -14,32 +14,27 @@ function App() {
         {id: 2, title: 'Typescript', body: 'wdgv'},
         {id: 3, title: 'CSS', body: 'Discription3'},
     ]);
-    const [selectedSort, setSelectedSort] = useState('');
-    const [searchQuery, setSearchQuery] = useState('');
+
+    const [filter, setFilter] = useState({sort: '', query: ''})
 
     const sortedPosts = useMemo(() => {
-        if (selectedSort) {
-            return [...posts].sort((a, b) => a[selectedSort].localeCompare(b[selectedSort]));
+        if (filter.sort) {
+            return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
         }
         return posts;
-    }, [selectedSort, posts]);
+    }, [filter.sort, posts]);
     const sortedAndSearchedPosts = useMemo(() => {
-        return sortedPosts.filter(post => post.title.toLowerCase().includes(searchQuery));
-    }, [searchQuery, sortedPosts]);
+        return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query));
+    }, [filter.query, sortedPosts]);
 
     const createPost = (newPost) => setPosts([...posts, newPost]);
     const removePost = (currentPost) => setPosts(posts.filter((post) => currentPost.id !== post.id));
-    const sortPost = (sort) => {
-        setSelectedSort(sort);
-    };
-
-
 
 
   return (
     <div className="App">
         <PostForm create={createPost}/>
-        <PostFilter/>
+        <PostFilter filter={filter} setFilter={setFilter}/>
         {sortedAndSearchedPosts.length
             ? <PostList remove={removePost} posts={sortedAndSearchedPosts} title='Список постов 1'/>
             : <p className='post__info'>Посты не найдены :(</p>
