@@ -2,8 +2,6 @@ import React, {useState} from "react";
 import './styles/App.css'
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
-import MySelect from "./components/UI/select/MySelect";
-import MyInput from "./components/UI/input/MyInput";
 import {useMemo} from "react";
 import PostFilter from "./components/PostFilter";
 
@@ -35,10 +33,7 @@ function App() {
     <div className="App">
         <PostForm create={createPost}/>
         <PostFilter filter={filter} setFilter={setFilter}/>
-        {sortedAndSearchedPosts.length
-            ? <PostList remove={removePost} posts={sortedAndSearchedPosts} title='Список постов 1'/>
-            : <p className='post__info'>Посты не найдены :(</p>
-        }
+        <PostList remove={removePost} posts={sortedAndSearchedPosts} title='Список постов 1'/>
     </div>
   );
 }
