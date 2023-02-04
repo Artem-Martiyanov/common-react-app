@@ -28,7 +28,7 @@ function App() {
         return posts;
     }, [filter.sort, posts]);
     const sortedAndSearchedPosts = useMemo(() => {
-        return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query));
+        return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()));
     }, [filter.query, sortedPosts]);
 
     const createPost = (newPost) => {
